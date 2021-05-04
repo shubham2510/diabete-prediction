@@ -1,0 +1,166 @@
+{% extends 'dashboard/layout.html' %}
+{% block dashboard %}
+
+<div class="container rummage-profile">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+  <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }} alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <!-- <strong>Title</strong> --> {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+               
+              
+                <div class="row">
+                    
+                    <div class="col-md-12">
+                        <div class="tab-content profile-tab text-center" id="myTabContent">
+                            <div style="text-align: justify;" class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                 <h3 style="text-align: justify;" >Patient Details</h3>
+                                 <br>
+                                        <div  class="row">
+
+                                            <div class="col-md-6">
+                                                
+                                                <label>User Id</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{uid}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{name}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Consultant doctor:-</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{doctor}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Mobile</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{mobile}}</p>
+                                            </div>
+                                        </div>
+
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Blood Group</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{blood}}</p>
+                                            </div>
+                                            </div>
+
+
+
+
+
+                                         <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Date Of Birth</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{dob}}</p>
+                                            </div>
+
+
+                                        </div> <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Permanent Address</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{address}}</p>
+                                            </div>
+                                            </div>
+                                            <Br>
+ <h3 style="text-align: justify;" >Diabetes Details</h3>
+<br><br>
+
+ <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Your Sugar Level</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{glucose}}</p>
+                                            </div>
+
+
+                                        </div> 
+                                       
+                                     
+                                  {% if predict %}
+                                   
+                         <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Your Diabetes Status</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>You have Diabetes, please consult a Doctor.</p>
+                                            </div>
+
+
+                                        </div> 
+                                        <br>
+                                         <h3  style="text-align: center; color:red; " >Precaution You have to take are:</h3>
+
+                                    <br><br>
+                                    <ul style="text-align:justify;">
+                                       <h6>1) Cut Sugar and Refined Carbs From Your Diet.</h6> 
+                                       <h6>2) Work Out Regularly.</h6> 
+                                       <h6>3) Drink Water as Your Primary Beverage.</h6> 
+                                       <h6>4) Lose Weight If You’re Overweight or Obese.</h6> 
+                                       <h6>5) Quit Smoking.</h6> 
+                                       <h6>6) Follow a Very-Low-Carb Diet.</h6> 
+                                       <h6>7) Eat a High-Fiber Diett.</h6> 
+                                       <h6>8) Optimize Vitamin D Levels</h6> 
+                                       <h6>9) Minimize Your Intake of Processed Foods.</h6> 
+                                       <h6>10) Drink Coffee or Tea.</h6> 
+                            
+                                    </ul>
+                                    <br>
+    <div class="text-center">
+                                        <h3  style="text-align: center; color: red; " >Diet Plan for diabetic patient:</h3>
+                                        <br>
+                                     <img style="
+        
+      max-width: -webkit-fill-available; " src="{{ url_for('static',filename='assets1/images/food.jpg') }}" alt="Diet for Diabetes" width="800" > 
+                                       </div> 
+
+                        {% else %}
+                          <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Your Diabetes Status</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>You don't have Diabetes.</p>
+                                            </div>
+
+
+                                        </div> 
+                        {% endif %}
+<br>
+                                     
+                                
+
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+{% endblock %}
