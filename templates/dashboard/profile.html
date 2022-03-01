@@ -101,8 +101,7 @@
 
 
                                         </div> 
-                                       
-                                     
+                
                                   {% if predict %}
                                    
                          <div class="row">
@@ -142,6 +141,18 @@
                                        </div> 
 
                         {% else %}
+                                  {% if glucose == 0 %}
+                          <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Your Diabetes Status</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Please go to predict tab to check your diabetes status.</p>
+                                            </div>
+
+
+                                        </div> 
+                                     {% else %}
                           <div class="row">
                                             <div class="col-md-6">
                                                 <label>Your Diabetes Status</label>
@@ -152,6 +163,8 @@
 
 
                                         </div> 
+                                        {% endif %}
+<br>
                         {% endif %}
 <br>
                                      
