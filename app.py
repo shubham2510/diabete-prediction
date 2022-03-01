@@ -20,7 +20,7 @@ mydb = mysql.connector.connect(
   database="diabetes"
 )
 
-mycursor = mydb.cursor()
+mycursor = mydb.cursor(buffered=True)
 
 app = Flask(__name__)
 model = pickle.load(open('model.pkl', 'rb'))
@@ -154,11 +154,17 @@ def profile():
             doctor = account[7]
             mycursor.execute('SELECT * FROM predict WHERE uid =%s',(uid,))
             acc = mycursor.fetchone()
-            glucose=acc[2]
-            if acc[6] == '1':
-                predict=True
-            else:
+            if acc is None:
                 predict=False
+                glucose=0
+                new=True
+            else:
+                glucose=acc[2]
+                new=False
+                if acc[6] == '1':
+                    predict=True
+                else:
+                    predict=False
 
 
 
