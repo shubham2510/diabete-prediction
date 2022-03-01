@@ -5,8 +5,8 @@ Flask
 Cython
 matplotlib==3.0.2
 pandas
-numpy==1.17.3
-scikit_learn==0.21.3
+numpy
+scikit_learn
 mysql-connector
 mysql-connector-python
 
